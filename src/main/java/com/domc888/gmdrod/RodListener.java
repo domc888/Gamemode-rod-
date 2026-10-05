@@ -45,11 +45,6 @@ public final class RodListener implements Listener {
             event.setExpToDrop(0);
         }
 
-        if (!player.hasPermission("gmdrod.use")) {
-            player.sendMessage(Component.text("You do not have permission to use this rod."));
-            return;
-        }
-
         Player target = Bukkit.getPlayer(binding.targetId());
         if (target == null) {
             player.sendMessage(Component.text(binding.targetName() + " is not online."));
