@@ -11,8 +11,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 public final class RodItem {
@@ -34,11 +32,7 @@ public final class RodItem {
         ItemStack item = new ItemStack(Material.FISHING_ROD);
         ItemMeta meta = item.getItemMeta();
 
-        meta.displayName(plain("GM Rod"));
-        meta.lore(List.of(
-                plain("Target: " + target.getName()),
-                plain("Mode: " + mode.name().toLowerCase(Locale.ROOT)),
-                plain("Cast, then reel in to apply")));
+        meta.displayName(Component.text("GM Rod").decoration(TextDecoration.ITALIC, false));
         meta.setUnbreakable(true);
 
         PersistentDataContainer pdc = meta.getPersistentDataContainer();
@@ -68,9 +62,5 @@ public final class RodItem {
         } catch (IllegalArgumentException e) {
             return null;
         }
-    }
-
-    private Component plain(String text) {
-        return Component.text(text).decoration(TextDecoration.ITALIC, false);
     }
 }
