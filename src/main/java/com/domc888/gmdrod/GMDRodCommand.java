@@ -16,7 +16,7 @@ import java.util.Map;
 
 public final class GMDRodCommand implements TabExecutor {
 
-    private static final List<String> MODES = List.of("survival", "creative", "adventure", "spectator");
+    private static final List<String> MODES = List.of("survival", "creative", "spectator", "adventure");
 
     private final RodItem rodItem;
 
@@ -42,7 +42,7 @@ public final class GMDRodCommand implements TabExecutor {
 
         GameMode mode = parseMode(args[1]);
         if (mode == null) {
-            player.sendMessage(Component.text("Invalid gamemode. Use survival, creative, adventure or spectator."));
+            player.sendMessage(Component.text("Invalid gamemode. Use survival, creative, spectator or adventure."));
             return true;
         }
 
@@ -74,10 +74,10 @@ public final class GMDRodCommand implements TabExecutor {
 
     private GameMode parseMode(String input) {
         return switch (input.toLowerCase(Locale.ROOT)) {
-            case "survival", "s", "0" -> GameMode.SURVIVAL;
-            case "creative", "c", "1" -> GameMode.CREATIVE;
-            case "adventure", "a", "2" -> GameMode.ADVENTURE;
-            case "spectator", "sp", "3" -> GameMode.SPECTATOR;
+            case "survival" -> GameMode.SURVIVAL;
+            case "creative" -> GameMode.CREATIVE;
+            case "spectator" -> GameMode.SPECTATOR;
+            case "adventure" -> GameMode.ADVENTURE;
             default -> null;
         };
     }
