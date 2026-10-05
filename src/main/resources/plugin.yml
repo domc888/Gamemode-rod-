@@ -1,0 +1,14 @@
+name: GMDRod
+version: 1.0.0
+main: com.domc888.gmdrod.GMDRod
+api-version: 1.21.11
+author: domc888
+commands:
+  gmdrod:
+    description: Gives you a fishing rod that changes a player's gamemode when you cast and reel in
+    usage: /<command> <player> <gamemode>
+    permission: gmdrod.use
+permissions:
+  gmdrod.use:
+    description: Allows /gmdrod and using a GM Rod
+    default: op
